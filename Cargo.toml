@@ -8,7 +8,7 @@ documentation = "https://docs.rs/hpm-riscv"
 homepage = "https://github.com/hpmicro-rs/hpm-riscv-rt"
 categories = ["embedded", "no-std", "hardware-support"]
 license = "MIT/Apache-2.0"
-version = "0.1.1"                                         # for rt and macros
+version = "0.1.2"                                         # for rt and macros
 edition = "2021"
 
 [package]
@@ -28,7 +28,7 @@ readme = "README.md"
 [dependencies]
 # andes-riscv = { version = "0.1.1", path = "../../andes-riscv" }
 andes-riscv = "0.1.2"
-hpm-riscv-rt-macros = { version = "0.1.1", path = "macros" }
+hpm-riscv-rt-macros = { version = "0.1.2", path = "macros" }
 
 [features]
 default = []
