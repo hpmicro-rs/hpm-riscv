@@ -284,7 +284,6 @@ unsafe extern "C" fn _start_rust() -> ! {
     _setup_interrupts();
 
     // enable FPU
-    mstatus::set_fs(mstatus::FS::Clean);
     mstatus::set_fs(mstatus::FS::Initial);
 
     main()
