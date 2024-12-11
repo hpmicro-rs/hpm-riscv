@@ -12,6 +12,8 @@ pub use hpm_riscv_rt_macros::{entry, fast, interrupt, pre_init};
 
 pub mod trap;
 
+pub mod header;
+
 /// Parse cfg attributes inside a global_asm call.
 macro_rules! cfg_global_asm {
     {@inner, [$($x:tt)*], } => {

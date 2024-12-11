@@ -39,6 +39,18 @@ PROVIDE(ExceptionHandler = DefaultExceptionHandler);
 
 SECTIONS
 {
+    .flash_config 0x80000400 :
+    {
+        KEEP(*(.flash_config));
+    } > REGION_HEADER
+
+    .boot_header 0x80001000 :
+    {
+        __boot_header_start__ = .;
+        KEEP(*(.boot_header));
+        KEEP(*(.fw_info_table));
+    } > REGION_HEADER
+
     .start : {
         . = ALIGN(8);
         KEEP(*(.start))
@@ -191,6 +203,14 @@ SECTIONS
 
     .eh_frame (INFO) : { KEEP(*(.eh_frame)) }
     .eh_frame_hdr (INFO) : { *(.eh_frame_hdr) }
+
+    .flash_end :
+    {
+        __flash_end__ = .;
+    } > XPI0_APP
+
+    __fw_size__ = __flash_end__ - _start;
+    __fw_offset__ = _start - __boot_header_start__;
 }
 
 /* Do not exceed this mark in the error messages above                                    | */
